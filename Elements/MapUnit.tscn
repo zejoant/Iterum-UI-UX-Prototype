@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://h2ynr8tyj070"]
+
+[ext_resource type="Texture2D" uid="uid://c6shmgarcm33p" path="res://Resources/UnitBackground.png" id="1_q8aoa"]
+[ext_resource type="Texture2D" uid="uid://dtuvfo3hm2nve" path="res://Resources/UnitBackground_hover.png" id="2_xlhcp"]
+[ext_resource type="Texture2D" uid="uid://bsh1qruhnx408" path="res://Resources/Icons/Units/Peasants.png" id="3_xlhcp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8lqdi"]
+texture = ExtResource("1_q8aoa")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ye4j"]
+texture = ExtResource("2_xlhcp")
+
+[node name="MapUnit" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_right = 61.0
+offset_bottom = 61.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_8lqdi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0ye4j")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0ye4j")
+toggle_mode = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(30.499996, 30.499994)
+scale = Vector2(0.11914061, 0.1191406)
+texture = ExtResource("3_xlhcp")

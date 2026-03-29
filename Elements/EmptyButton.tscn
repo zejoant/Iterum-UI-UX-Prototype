@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://br6lc381bdoyg"]
+
+[ext_resource type="Texture2D" uid="uid://bmrayx2mws8cj" path="res://Resources/3SliceButton_1.png" id="1_5ouu6"]
+[ext_resource type="Texture2D" uid="uid://c4gv70kch0e3r" path="res://Resources/3SliceButton.png" id="1_wyphw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yq5xy"]
+texture = ExtResource("1_5ouu6")
+texture_margin_left = 18.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lc4xp"]
+texture = ExtResource("1_wyphw")
+texture_margin_left = 18.441362
+texture_margin_top = 15.709309
+texture_margin_right = 15.709309
+texture_margin_bottom = 17.758348
+
+[sub_resource type="Theme" id="Theme_0kkfq"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 30
+Button/styles/disabled = SubResource("StyleBoxTexture_yq5xy")
+Button/styles/focus = SubResource("StyleBoxTexture_lc4xp")
+Button/styles/hover = SubResource("StyleBoxTexture_yq5xy")
+Button/styles/normal = SubResource("StyleBoxTexture_lc4xp")
+Button/styles/pressed = SubResource("StyleBoxTexture_yq5xy")
+
+[node name="Button" type="Button"]
+offset_right = 435.0
+offset_bottom = 136.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_0kkfq")

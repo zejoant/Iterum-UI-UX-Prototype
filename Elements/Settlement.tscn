@@ -1,0 +1,752 @@
+[gd_scene load_steps=22 format=3 uid="uid://cnwgv1gws5geh"]
+
+[ext_resource type="Script" uid="uid://cefsru3puxsx0" path="res://Elements/settlement.gd" id="1_2mg3j"]
+[ext_resource type="PackedScene" uid="uid://bxjm86f2vxort" path="res://Elements/Pane.tscn" id="1_4aa1a"]
+[ext_resource type="Texture2D" uid="uid://7sj7xkhxq3o7" path="res://Resources/Icons/NoTaxes.png" id="2_2mg3j"]
+[ext_resource type="Texture2D" uid="uid://ddx8t4q0tovti" path="res://Resources/Icons/NoRations.png" id="3_t24o5"]
+[ext_resource type="PackedScene" uid="uid://c840i7slv2i1n" path="res://Elements/Divider.tscn" id="4_sjatf"]
+[ext_resource type="Texture2D" uid="uid://b5u4oyw6riv0u" path="res://Resources/Icons/Population.png" id="5_gu1u5"]
+[ext_resource type="Texture2D" uid="uid://b56yxyl4plfdd" path="res://Resources/Icons/FoodSupplies.png" id="6_1k8ya"]
+[ext_resource type="Texture2D" uid="uid://gbrnm7n6imy4" path="res://Resources/Icons/Happiness.png" id="7_t2fhu"]
+[ext_resource type="Texture2D" uid="uid://crlf66gogo2mh" path="res://Resources/Icons/Coins.png" id="8_6i74j"]
+[ext_resource type="Texture2D" uid="uid://e6556kd7rv8r" path="res://Resources/Icons/Industry.png" id="9_v612u"]
+[ext_resource type="Texture2D" uid="uid://cl7yorsnpixrp" path="res://Resources/Icons/Sanitation.png" id="10_la85r"]
+[ext_resource type="Texture2D" uid="uid://dctoelvl17ym7" path="res://Resources/Top.png" id="11_sacg0"]
+[ext_resource type="Texture2D" uid="uid://cwjyh4k6wxach" path="res://Resources/Icons/Improvements/Well.png" id="12_t24o5"]
+[ext_resource type="Texture2D" uid="uid://3uh7oatudvs6" path="res://Resources/Screenshot 2026-03-28 144016.png" id="13_t24o5"]
+[ext_resource type="PackedScene" uid="uid://br6lc381bdoyg" path="res://Elements/EmptyButton.tscn" id="14_gu1u5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fpfj3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j4qnp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4qnp"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.52906674, 0.5290667, 0.5290667, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="Theme" id="Theme_e184x"]
+HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_fpfj3")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_j4qnp")
+HSlider/styles/slider = SubResource("StyleBoxFlat_j4qnp")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpfj3"]
+bg_color = Color(0.21960784, 0.23529412, 0.26666668, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_rqexs"]
+Panel/styles/panel = SubResource("StyleBoxFlat_fpfj3")
+
+[node name="Settlement" type="Node2D"]
+script = ExtResource("1_2mg3j")
+
+[node name="SettlementView" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" parent="SettlementView" instance=ExtResource("1_4aa1a")]
+layout_mode = 0
+offset_left = -9.1236
+offset_top = 269.0
+offset_right = 503.23602
+offset_bottom = 1119.0
+scale = Vector2(0.9, 0.9)
+
+[node name="Taxes" type="Control" parent="SettlementView"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="SettlementView/Taxes"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 272.0
+offset_right = 214.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 16
+text = "No Taxes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlementView/Taxes"]
+position = Vector2(31, 312)
+scale = Vector2(0.06249998, 0.06249998)
+texture = ExtResource("2_2mg3j")
+
+[node name="HSlider" type="HSlider" parent="SettlementView/Taxes"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 304.0
+offset_right = 213.0
+offset_bottom = 320.0
+theme = SubResource("Theme_e184x")
+max_value = 4.0
+
+[node name="Rations" type="Control" parent="SettlementView"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="SettlementView/Rations"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 272.0
+offset_right = 420.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 16
+text = "No Rations"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="SettlementView/Rations"]
+position = Vector2(239, 312)
+scale = Vector2(0.06249998, 0.06249998)
+texture = ExtResource("3_t24o5")
+
+[node name="HSlider2" type="HSlider" parent="SettlementView/Rations"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 303.0
+offset_right = 419.0
+offset_bottom = 319.0
+theme = SubResource("Theme_e184x")
+max_value = 5.0
+
+[node name="Divider" parent="SettlementView" instance=ExtResource("4_sjatf")]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 376.0
+offset_right = 703.3333
+offset_bottom = 456.0
+scale = Vector2(0.6, 0.6)
+
+[node name="MenuButton" type="MenuButton" parent="SettlementView"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Panel2" type="Panel" parent="SettlementView/MenuButton"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 416.0
+offset_right = 212.0
+offset_bottom = 450.0
+theme = SubResource("Theme_rqexs")
+
+[node name="Label" type="Label" parent="SettlementView/MenuButton"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 416.0
+offset_right = 123.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 16
+text = "32.6k"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SettlementView/MenuButton"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 416.0
+offset_right = 212.0
+offset_bottom = 450.0
+theme_override_colors/font_color = Color(0.5362667, 0.8, 0.43199998, 1)
+theme_override_font_sizes/font_size = 16
+text = "+43"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlementView/MenuButton"]
+position = Vector2(30, 432.00003)
+scale = Vector2(0.07031249, 0.07031249)
+texture = ExtResource("5_gu1u5")
+
+[node name="MenuButton2" type="MenuButton" parent="SettlementView"]
+layout_mode = 0
+offset_left = 208.0
+offset_right = 216.0
+offset_bottom = 8.0
+
+[node name="Panel2" type="Panel" parent="SettlementView/MenuButton2"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 416.0
+offset_right = 212.0
+offset_bottom = 450.0
+theme = SubResource("Theme_rqexs")
+
+[node name="Label" type="Label" parent="SettlementView/MenuButton2"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 416.0
+offset_right = 166.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 16
+text = "30.1 / 32.6k"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SettlementView/MenuButton2"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 416.0
+offset_right = 212.0
+offset_bottom = 450.0
+theme_override_colors/font_color = Color(0.5362667, 0.8, 0.43199998, 1)
+theme_override_font_sizes/font_size = 16
+text = "+43"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlementView/MenuButton2"]
+position = Vector2(30, 432.00003)
+scale = Vector2(0.07031249, 0.07031249)
+texture = ExtResource("6_1k8ya")
+
+[node name="MenuButton3" type="MenuButton" parent="SettlementView"]
+layout_mode = 0
+offset_top = 42.0
+offset_right = 8.0
+offset_bottom = 50.0
+
+[node name="Panel2" type="Panel" parent="SettlementView/MenuButton3"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 416.0
+offset_right = 212.0
+offset_bottom = 450.0
+theme = SubResource("Theme_rqexs")
+
+[node name="Label" type="Label" parent="SettlementView/MenuButton3"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 416.0
+offset_right = 113.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 16
+text = "65%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SettlementView/MenuButton3"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 416.0
+offset_right = 212.0
+offset_bottom = 450.0
+theme_override_colors/font_color = Color(0.8, 0.256, 0.256, 1)
+theme_override_font_sizes/font_size = 16
+text = "-3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlementView/MenuButton3"]
+position = Vector2(33, 433)
+scale = Vector2(0.08203125, 0.08203126)
+texture = ExtResource("7_t2fhu")
+
+[node name="MenuButton4" type="MenuButton" parent="SettlementView"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 42.0
+offset_right = 216.0
+offset_bottom = 50.0
+
+[node name="Panel2" type="Panel" parent="SettlementView/MenuButton4"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 416.0
+offset_right = 212.0
+offset_bottom = 450.0
+theme = SubResource("Theme_rqexs")
+
+[node name="Label" type="Label" parent="SettlementView/MenuButton4"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 416.0
+offset_right = 109.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 16
+text = "36k"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SettlementView/MenuButton4"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 416.0
+offset_right = 212.0
+offset_bottom = 450.0
+theme_override_colors/font_color = Color(0.5362667, 0.8, 0.43199998, 1)
+theme_override_font_sizes/font_size = 16
+text = "+103"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlementView/MenuButton4"]
+position = Vector2(30, 433)
+scale = Vector2(0.089843735, 0.089843735)
+texture = ExtResource("8_6i74j")
+
+[node name="Divider2" parent="SettlementView" instance=ExtResource("4_sjatf")]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 483.0
+offset_right = 703.3333
+offset_bottom = 563.0
+scale = Vector2(0.6, 0.6)
+
+[node name="MenuButton5" type="MenuButton" parent="SettlementView"]
+layout_mode = 0
+offset_top = 109.0
+offset_right = 8.0
+offset_bottom = 117.0
+
+[node name="Panel2" type="Panel" parent="SettlementView/MenuButton5"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 416.0
+offset_right = 212.0
+offset_bottom = 450.0
+theme = SubResource("Theme_rqexs")
+
+[node name="Label" type="Label" parent="SettlementView/MenuButton5"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 416.0
+offset_right = 113.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 16
+text = "????"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SettlementView/MenuButton5"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 416.0
+offset_right = 212.0
+offset_bottom = 450.0
+theme_override_colors/font_color = Color(0.5362667, 0.8, 0.43199998, 1)
+theme_override_font_sizes/font_size = 16
+text = "+??"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlementView/MenuButton5"]
+position = Vector2(31, 435.00003)
+scale = Vector2(0.08984375, 0.08984375)
+texture = ExtResource("9_v612u")
+
+[node name="MenuButton6" type="MenuButton" parent="SettlementView"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 109.0
+offset_right = 216.0
+offset_bottom = 117.0
+
+[node name="Panel2" type="Panel" parent="SettlementView/MenuButton6"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 416.0
+offset_right = 212.0
+offset_bottom = 450.0
+theme = SubResource("Theme_rqexs")
+
+[node name="Label" type="Label" parent="SettlementView/MenuButton6"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 416.0
+offset_right = 111.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 16
+text = "????"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SettlementView/MenuButton6"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 416.0
+offset_right = 212.0
+offset_bottom = 450.0
+theme_override_colors/font_color = Color(0.5362667, 0.8, 0.43199998, 1)
+theme_override_font_sizes/font_size = 16
+text = "+??"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlementView/MenuButton6"]
+position = Vector2(30, 432.00003)
+scale = Vector2(0.07031249, 0.07031249)
+texture = ExtResource("5_gu1u5")
+
+[node name="MenuButton7" type="MenuButton" parent="SettlementView"]
+layout_mode = 0
+offset_top = 151.0
+offset_right = 8.0
+offset_bottom = 159.0
+
+[node name="Panel2" type="Panel" parent="SettlementView/MenuButton7"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 416.0
+offset_right = 212.0
+offset_bottom = 450.0
+theme = SubResource("Theme_rqexs")
+
+[node name="Label" type="Label" parent="SettlementView/MenuButton7"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 416.0
+offset_right = 118.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 16
+text = "???%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SettlementView/MenuButton7"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 416.0
+offset_right = 212.0
+offset_bottom = 450.0
+theme_override_colors/font_color = Color(0.8, 0.256, 0.256, 1)
+theme_override_font_sizes/font_size = 16
+text = "-?%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlementView/MenuButton7"]
+position = Vector2(31, 433)
+scale = Vector2(0.08984375, 0.08984374)
+texture = ExtResource("10_la85r")
+
+[node name="MenuButton8" type="MenuButton" parent="SettlementView"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 151.0
+offset_right = 216.0
+offset_bottom = 159.0
+
+[node name="Panel2" type="Panel" parent="SettlementView/MenuButton8"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 416.0
+offset_right = 212.0
+offset_bottom = 450.0
+theme = SubResource("Theme_rqexs")
+
+[node name="Label" type="Label" parent="SettlementView/MenuButton8"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 416.0
+offset_right = 104.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 16
+text = "56"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SettlementView/MenuButton8"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 416.0
+offset_right = 212.0
+offset_bottom = 450.0
+theme_override_colors/font_color = Color(0.5362667, 0.8, 0.43199998, 1)
+theme_override_font_sizes/font_size = 16
+text = "+2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="SettlementView/MenuButton8"]
+position = Vector2(30, 432)
+scale = Vector2(0.070312515, 0.070312515)
+texture = ExtResource("5_gu1u5")
+
+[node name="ConstructionView" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" parent="ConstructionView" instance=ExtResource("1_4aa1a")]
+layout_mode = 0
+offset_left = -9.1236
+offset_right = 503.23602
+offset_bottom = 1148.8889
+scale = Vector2(0.9, 0.9)
+
+[node name="Label" type="Label" parent="ConstructionView"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 269.0
+offset_right = 432.0
+offset_bottom = 314.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 25
+text = "Constructions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Improvements" type="Control" parent="ConstructionView"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Info" type="Control" parent="ConstructionView"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Screenshot20260328144016" type="Sprite2D" parent="ConstructionView/Info"]
+visible = false
+position = Vector2(220.57364, 826.25)
+scale = Vector2(1.0658915, 1.0658915)
+texture = ExtResource("13_t24o5")
+
+[node name="Panel2" parent="ConstructionView/Info" instance=ExtResource("1_4aa1a")]
+layout_mode = 0
+offset_left = 433.0898
+offset_top = 612.2568
+offset_right = 912.7032
+offset_bottom = 1083.3643
+rotation = 1.5707964
+scale = Vector2(0.9, 0.9)
+
+[node name="Type" type="Label" parent="ConstructionView/Info"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 633.0
+offset_right = 430.0
+offset_bottom = 682.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 25
+text = "Well"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ConstructionView/Info"]
+visible = false
+position = Vector2(38.000008, 656.00006)
+scale = Vector2(0.078125, 0.078125)
+texture = ExtResource("12_t24o5")
+
+[node name="Desc" type="Label" parent="ConstructionView/Info"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 684.0
+offset_right = 404.0
+offset_bottom = 735.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 14
+text = "hej"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite2D4" type="Sprite2D" parent="ConstructionView/Info"]
+position = Vector2(55, 763)
+scale = Vector2(0.076171875, 0.076171875)
+texture = ExtResource("5_gu1u5")
+
+[node name="Stat1" type="Label" parent="ConstructionView/Info"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 748.0
+offset_right = 130.0
+offset_bottom = 782.0
+theme_override_font_sizes/font_size = 16
+text = "12"
+vertical_alignment = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="ConstructionView/Info"]
+position = Vector2(188, 764)
+scale = Vector2(0.08593749, 0.08593749)
+texture = ExtResource("8_6i74j")
+
+[node name="Stat2" type="Label" parent="ConstructionView/Info"]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 749.0
+offset_right = 270.0
+offset_bottom = 783.0
+theme_override_font_sizes/font_size = 16
+text = "30/year"
+vertical_alignment = 1
+
+[node name="Sprite2D5" type="Sprite2D" parent="ConstructionView/Info"]
+position = Vector2(318.00003, 764)
+scale = Vector2(0.08593749, 0.08593749)
+texture = ExtResource("10_la85r")
+
+[node name="Stat3" type="Label" parent="ConstructionView/Info"]
+layout_mode = 0
+offset_left = 346.0
+offset_top = 748.0
+offset_right = 405.0
+offset_bottom = 782.0
+theme_override_font_sizes/font_size = 16
+text = "100"
+vertical_alignment = 1
+
+[node name="ImpUpgradeButton" parent="ConstructionView/Info" instance=ExtResource("14_gu1u5")]
+layout_mode = 0
+offset_left = 31.000008
+offset_top = 913.0
+offset_right = 401.0
+offset_bottom = 988.46765
+scale = Vector2(0.4, 0.4)
+text = "Upgrade"
+
+[node name="CurrLv" type="Label" parent="ConstructionView/Info"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 911.0
+offset_right = 251.0
+offset_bottom = 945.0
+theme_override_font_sizes/font_size = 16
+text = "Lv. 1"
+vertical_alignment = 1
+
+[node name="NextLv" type="Label" parent="ConstructionView/Info"]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 911.0
+offset_right = 301.0
+offset_bottom = 945.0
+theme_override_colors/font_color = Color(0.3626, 0.74, 0.2368, 1)
+theme_override_font_sizes/font_size = 16
+text = "➜  Lv. 2"
+vertical_alignment = 1
+
+[node name="UpgradeCostSprite" type="Sprite2D" parent="ConstructionView/Info"]
+position = Vector2(339, 928)
+scale = Vector2(0.08593749, 0.08593749)
+texture = ExtResource("8_6i74j")
+
+[node name="UpgradeCost" type="Label" parent="ConstructionView/Info"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 912.0
+offset_right = 419.0
+offset_bottom = 946.0
+theme_override_font_sizes/font_size = 16
+text = "100"
+vertical_alignment = 1
+
+[node name="Button3" parent="ConstructionView/Info" instance=ExtResource("14_gu1u5")]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 978.0
+offset_right = 616.0
+offset_bottom = 1053.4677
+scale = Vector2(0.4, 0.4)
+text = "Back"
+
+[node name="Button4" parent="ConstructionView/Info" instance=ExtResource("14_gu1u5")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 978.0
+offset_right = 418.0
+offset_bottom = 1053.4677
+scale = Vector2(0.4, 0.4)
+text = "Demolish"
+
+[node name="ColorRect" type="ColorRect" parent="ConstructionView/Info"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 796.0
+offset_right = 414.0
+offset_bottom = 798.0
+color = Color(0.3647059, 0.14509805, 0.22352941, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ConstructionView/Info"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 896.0
+offset_right = 411.0
+offset_bottom = 898.0
+color = Color(0.3647059, 0.14509805, 0.22352941, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ConstructionView/Info"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 959.0
+offset_right = 411.0
+offset_bottom = 961.0
+color = Color(0.3647059, 0.14509805, 0.22352941, 1)
+
+[node name="GarrisonView" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" parent="GarrisonView" instance=ExtResource("1_4aa1a")]
+layout_mode = 0
+offset_left = -9.1236
+offset_right = 503.23602
+offset_bottom = 1148.8889
+scale = Vector2(0.9, 0.9)
+
+[node name="Top" type="Sprite2D" parent="GarrisonView"]
+visible = false
+position = Vector2(220.91087, 134.48907)
+scale = Vector2(0.960482, 0.9640795)
+texture = ExtResource("11_sacg0")
+
+[node name="SettlementImg" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Top" type="Sprite2D" parent="SettlementImg"]
+position = Vector2(220.91087, 134.48907)
+scale = Vector2(0.960482, 0.9640795)
+texture = ExtResource("11_sacg0")
+
+[node name="Label" type="Label" parent="SettlementImg"]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 58.0
+offset_right = 431.0
+offset_bottom = 106.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 30
+text = "Venetia"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionButtonPane" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 451.0
+offset_top = 65.0
+offset_right = 491.0
+offset_bottom = 105.0
+
+[connection signal="value_changed" from="SettlementView/Taxes/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="SettlementView/Rations/HSlider2" to="." method="_on_h_slider_2_value_changed"]
+[connection signal="pressed" from="ConstructionView/Info/ImpUpgradeButton" to="." method="_on_imp_upgrade_button_pressed"]

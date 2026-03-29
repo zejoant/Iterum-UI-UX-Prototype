@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=3 uid="uid://bx60xp3a2fm3c"]
+
+[ext_resource type="Texture2D" uid="uid://cwjyh4k6wxach" path="res://Resources/Icons/Improvements/Well.png" id="1_84ij4"]
+[ext_resource type="Script" uid="uid://dkjqoy87dvw33" path="res://Elements/improvement.gd" id="1_w606q"]
+[ext_resource type="Texture2D" uid="uid://crlf66gogo2mh" path="res://Resources/Icons/Coins.png" id="2_w606q"]
+[ext_resource type="Texture2D" uid="uid://b5u4oyw6riv0u" path="res://Resources/Icons/Population.png" id="3_88mgq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjatf"]
+bg_color = Color(0.21960784, 0.23529412, 0.26666668, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88mgq"]
+bg_color = Color(0.5984113, 0.55424947, 0.4966122, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxsyv"]
+bg_color = Color(0.5984113, 0.55424947, 0.4966122, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkfc1"]
+bg_color = Color(0.5984113, 0.55424947, 0.4966122, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_gxsyv"]
+Button/styles/disabled = SubResource("StyleBoxFlat_sjatf")
+Button/styles/focus = SubResource("StyleBoxFlat_88mgq")
+Button/styles/hover = SubResource("StyleBoxFlat_gxsyv")
+Button/styles/normal = SubResource("StyleBoxFlat_sjatf")
+Button/styles/pressed = SubResource("StyleBoxFlat_dkfc1")
+
+[node name="Improvement" type="Button"]
+offset_right = 383.0
+offset_bottom = 34.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_gxsyv")
+toggle_mode = true
+script = ExtResource("1_w606q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, 17)
+scale = Vector2(0.06640624, 0.06640624)
+texture = ExtResource("1_84ij4")
+
+[node name="Type" type="Label" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = -6.1035156e-05
+offset_right = 183.0
+offset_bottom = 33.99994
+theme_override_font_sizes/font_size = 16
+text = "Well"
+vertical_alignment = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(297, 17)
+scale = Vector2(0.05468748, 0.05468748)
+texture = ExtResource("2_w606q")
+
+[node name="Upkeep" type="Label" parent="."]
+layout_mode = 0
+offset_left = 317.0
+offset_right = 376.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 16
+text = "30/year"
+vertical_alignment = 1
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(221, 17)
+scale = Vector2(0.0625, 0.0625)
+texture = ExtResource("3_88mgq")
+
+[node name="Workers" type="Label" parent="."]
+layout_mode = 0
+offset_left = 241.0
+offset_right = 290.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 16
+text = "12"
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 383.0
+offset_bottom = 34.0
+color = Color(0.17279999, 0.64, 0.22730671, 1)
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

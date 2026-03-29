@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://5lq8bpsnopyr"]
+
+[ext_resource type="Texture2D" uid="uid://nji58yf6oegi" path="res://Resources/Icons/Actions/Build.png" id="1_0chjq"]
+[ext_resource type="Texture2D" uid="uid://ek6rpilhxaw8" path="res://Resources/Icons/Actions/Build_hover.png" id="2_lw4mv"]
+[ext_resource type="Script" uid="uid://c1e0sn2mc3fbg" path="res://Elements/action_button.gd" id="3_lw4mv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0chjq"]
+texture = ExtResource("1_0chjq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lw4mv"]
+texture = ExtResource("2_lw4mv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eu66j"]
+texture = ExtResource("2_lw4mv")
+
+[node name="ActionButton" type="Button"]
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 34.0
+offset_bottom = 34.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_0chjq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lw4mv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_eu66j")
+script = ExtResource("3_lw4mv")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

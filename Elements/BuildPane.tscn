@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bskr64pr35bos"]
+
+[ext_resource type="PackedScene" uid="uid://bxjm86f2vxort" path="res://Elements/Pane.tscn" id="1_0mbid"]
+[ext_resource type="Script" uid="uid://xtb0s5ww1uk4" path="res://Elements/build_pane.gd" id="1_mw48t"]
+[ext_resource type="PackedScene" uid="uid://br6lc381bdoyg" path="res://Elements/EmptyButton.tscn" id="3_ixgum"]
+
+[node name="BuildPane" type="Node2D"]
+script = ExtResource("1_mw48t")
+
+[node name="Panel" parent="." instance=ExtResource("1_0mbid")]
+offset_left = -9.1236
+offset_right = 503.23602
+offset_bottom = 1148.8889
+scale = Vector2(0.9, 0.9)
+
+[node name="Panel2" parent="." instance=ExtResource("1_0mbid")]
+offset_left = 433.05594
+offset_top = 959.4671
+offset_right = 527.10095
+offset_bottom = 1430.7148
+rotation = 1.5707964
+scale = Vector2(0.9, 0.9)
+
+[node name="Button" parent="." instance=ExtResource("3_ixgum")]
+offset_left = 127.94116
+offset_top = 40.0
+offset_right = 307.05884
+offset_bottom = 96.0
+text = "Build Well"
+
+[node name="Button2" parent="." instance=ExtResource("3_ixgum")]
+offset_left = 143.0
+offset_top = 986.0
+offset_right = 513.0
+offset_bottom = 1061.4677
+scale = Vector2(0.4, 0.4)
+text = "Back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
